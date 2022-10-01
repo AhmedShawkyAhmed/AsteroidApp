@@ -19,8 +19,10 @@ fun bindUriToImage(imageView: ImageView, strUrl: String?) {
 @BindingAdapter("statusIcon")
 fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
+        imageView.contentDescription = imageView.context.getString(R.string.potentially_hazardous_asteroid_image)
         imageView.setImageResource(R.drawable.ic_status_potentially_hazardous)
     } else {
+        imageView.contentDescription = imageView.context.getString(R.string.not_hazardous_asteroid_image)
         imageView.setImageResource(R.drawable.ic_status_normal)
     }
 }
@@ -40,8 +42,21 @@ fun bindTextViewToKmUnit(textView: TextView, number: Double) {
 @BindingAdapter("asteroidStatusImage")
 fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
+        imageView.contentDescription = imageView.context.getString(R.string.potentially_hazardous_asteroid_image)
         imageView.setImageResource(R.drawable.asteroid_hazardous)
     } else {
+        imageView.contentDescription = imageView.context.getString(R.string.not_hazardous_asteroid_image)
+        imageView.setImageResource(R.drawable.asteroid_safe)
+    }
+}
+
+@BindingAdapter("contentDescription")
+fun bindDetailsDescription(imageView: ImageView, isHazardous: Boolean) {
+    if (isHazardous) {
+        imageView.contentDescription = imageView.context.getString(R.string.potentially_hazardous_asteroid_image)
+        imageView.setImageResource(R.drawable.asteroid_hazardous)
+    } else {
+        imageView.contentDescription = imageView.context.getString(R.string.not_hazardous_asteroid_image)
         imageView.setImageResource(R.drawable.asteroid_safe)
     }
 }
